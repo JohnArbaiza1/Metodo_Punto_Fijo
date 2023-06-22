@@ -1,0 +1,126 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+      <!--Llamando a las clases de bootstrap-->
+      <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+      <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+
+      <!--Para los iconos-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<style>
+     body{
+        background-color: #DDE6ED;
+    }
+
+    .card{
+        width: 26rem;
+        box-shadow: -5px 5px 10px rgb(31, 77, 91);
+        color: #093777;
+    }
+
+    .LoginPagina{
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .circle{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .circle span{
+        width: 30px;
+        height: auto;
+        border-radius: 50%;
+        border: 2px solid rgb(51, 152, 219);
+        padding:1px;
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+
+    .form-control{
+        background:rgba(220,  235, 241, 0.774);
+    }
+
+     /*Esyilo del button*/
+     .btn:hover{
+        background-color: rgb(40, 175, 96);
+    }
+
+    .link:hover{
+        color: tomato;
+    }
+</style>
+<body>
+
+    <!--Contenedor pincipal-->
+    <div class="container mt-5">
+        <div class="row">
+
+            <div class="col"></div>
+
+            <!--Registro del usuario-->
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="text-center mb-3">BIENVENIDO</h2>
+
+                        <form action="/Ingreso/" method="POST" class="LoginPagina">
+
+                            {# note: Mecanismo de seguridad#}
+                            {% csrf_token %}
+
+                            {# note: Llamando al formulario #}
+                            <div class="mb-4">
+                                <label for="username" class="form-label">Usuario:</label>
+                                <input type="text" class="form-control" id="username" autofocus name="username"
+                                placeholder="Ingrese su nombre de usuario">
+                            </div>
+    
+                            <div class="mb-4">
+                                <label for="password" class="form-label">Contraseña:</label>
+                                <input type="password" class="form-control" id="password" name="password"
+                                placeholder="Ingrese su contraseña">
+
+                                <span class="text-danger"> {{Error}}</span>
+                            </div>
+
+                            <div class="d-grid mb-3">
+                                <button type="submit" class="btn btn-primary">Ingresar</button>
+                            </div>
+                            
+                            <!--Para el registro de nuevo usuario-->
+                           <div class="text-center mb-3">
+                                 <span>¿Eres nuevo por acá? <a href="{% url 'registro' %}" class="link"> 
+                                    Registrarse 
+                                </a></span>
+                           </div>
+
+                        </form>
+
+                        <div class="circle">
+                            <span><a href="/logout"><i class="fa-solid fa-house"></i></a></span>
+                    </div>
+
+                    </div>
+           
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+     
+    </div>
+
+    
+</body>
+</html>
