@@ -16,6 +16,11 @@ from django.http import HttpResponse
 #Para los errores de integrida en la base de datos
 from django.db import IntegrityError
 
+#Import de la clase perfil
+from .models import Perfil
+
+#Import de la clase forms que se creo
+from .forms import *
 #-------------------------------------------------------------------
 # Create your views here.
 
@@ -66,7 +71,19 @@ def registro(request):
         
 
 def Principal(request):
-    return render(request, 'Principal.html')
+    profile = Perfil.objects.get(user=request.user)
+
+    if request.method == 'POST':
+         # Si la solicitud es POST, se intenta guardar el formulario enviado
+          form = PerfilForm(request.POST, request.FILES, instance=profile)
+          if form.is_valid():
+              form.save()
+              return redirect('Principal') 
+    else:
+        # Si la solicitud es GET, se muestra el formulario vacío o prellenado con los datos existentes
+        form = PerfilForm(instance=profile)
+
+    return render(request, 'Principal.html', {'perfil': profile, 'form': form})
 
 def cerrar(request):
     logout(request)
@@ -94,6 +111,9 @@ def Ingreso(request):
             #Guardando la sesión
             login(request, user)
             return redirect('Principal')
+        
+
+
 
   
 

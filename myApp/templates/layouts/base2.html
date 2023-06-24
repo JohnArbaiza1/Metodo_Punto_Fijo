@@ -12,6 +12,7 @@
     <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
     <!--Clase de css propia a emplear-->
     <link rel="stylesheet" href="{% static '/css/base.css' %}">
+    <link rel="stylesheet" href="{% static '/css/Profile.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -31,7 +32,9 @@
 
               <li>
                 <button class="Perfil">
-                    <a href="#"><i class="fa-solid fa-user"></i> Perfil</a>
+                  <a data-bs-toggle="offcanvas" href="#PerfilUsuario" role="button" aria-controls="offcanvasExample">
+                    <i class="fa-solid fa-user"></i> Perfil
+                  </a>
                 </button>
               </li>
 
@@ -43,12 +46,6 @@
             </ul>
         </div>
       </nav>
-    
-
-    <!--Contenedor principal-->
-    <div class="container">
-
-    </div>
 
     {% block content %} 
     
