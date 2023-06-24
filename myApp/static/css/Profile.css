@@ -1,0 +1,38 @@
+.FonPerfil{
+    width: 20.1rem;
+    height: 11rem;
+    border-radius: 3px;
+}
+
+.IMGPerfil{
+    width: 7rem;
+    height: 6.5rem;
+    border-radius: 50%;
+    border: 3px solid rgb(40, 105, 124);
+    margin-top: -30px;
+    margin-left: 3px;
+}
+
+.card{
+    border: 3px solid rgb(40, 105, 124);
+    box-shadow: -5px 5px 10px rgb(31, 77, 91);
+    color: #093777;
+}
+
+.img{
+    font-size: 0.8rem;
+    padding: 6px;
+}
+
+.opciones{
+    float: right;
+    margin-right: 6px;
+}
+
+.offcanvas{
+    background-color: #DDE6ED;
+}
+
+.form-control{
+    background:rgba(220,  235, 241, 0.774);
+}

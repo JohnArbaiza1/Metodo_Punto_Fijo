@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de punto fijo</title>
+
+    <!--Llamando a las clases de bootstrap-->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+    <!--Clase de css propia a emplear-->
+    <link rel="stylesheet" href="{% static '/css/bases.css' %}">
+    <link rel="stylesheet" href="{% static '/css/Profile.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <!--Barra de navegacion-->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <img class="Logo" src="{% static 'IMG/Logo.jpeg' %}" alt="Logo">
+
+            <!--Opciones-->
+            <ul class="Menu">
+              <li>
+                <button class="inicio">
+                    <a href="#"><i class="fa-solid fa-house"></i> Inicio</a>
+                </button>
+              </li>
+
+              <li>
+                <button class="Perfil">
+                  <a data-bs-toggle="offcanvas" href="#PerfilUsuario" role="button" aria-controls="offcanvasExample">
+                    <i class="fa-solid fa-user"></i> Perfil
+                  </a>
+                </button>
+              </li>
+
+              <li>
+                <button class="Activo">&#128187  {{ perfil.user.username }}</button>
+              </li>
+
+              <li>
+                <button class="exit">
+                    <a href="/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Salir</a>
+                </button>
+              </li>
+
+            </ul>
+        </div>
+      </nav>
+
+    {% block content %} 
+    
+    {% endblock %}
+    
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!--Heredando atraves de jinja-->
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+
+{% block content %} 
+
+<!--Parte donde se trabajo el estilo de la pagina principal-->
+<style>
+    body{
+        background-color: #DDE6ED;
+    }
+
+    h1{
+        color: #27374D;
+        text-align: center;
+    }
+
+    /*Parte de la card*/
+
+    .card{
+        width: 26rem;
+        box-shadow: -5px 5px 10px rgb(31, 77, 91);
+        color: #093777;
+    }
+
+    h3{
+        color: #27374D;
+    }
+
+   /*Estilo de los input*/
+    .form-control{
+        background:rgba(220,  235, 241, 0.774);
+    }
+
+    .sol{
+        width: 24rem;
+        height: 4rem;
+        background:rgba(220,  235, 241, 0.774);
+        border: 2px solid rgb(31, 77, 91);
+        border-radius: 6px;
+    }
+
+    /*Esyilo del button*/
+    .btn:hover{
+        background-color: rgb(40, 175, 96);
+    }
+
+   
+
+</style>
+
+<!--Contenedor principal-->
+<div class="container"><br>
+    <h1 >Solucionador del método de punto fijo</h1><br>
+
+        <div class="row gx-5" id="row">
+        
+            <!--card donde el usuario podra sacar una solucion del problema que desee-->
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center" id="tarjeta">
+                <div class="card mb-4 ">
+
+                    <!--Indicaciones de como usar la aplicacion-->
+                    <h3 class="text-center">  INDICACIONES</h3>
+
+                    <div class="card-body">
+                        <span>Para que el método funcione se le debe agregar:</span>
+                        <br> <br>
+
+                        <!--Pidiendo los datos requeridos-->
+                        <form method="POST" action='{% url "procesar_formulario" %}'>
+                            {% csrf_token %}
+                            <div class="mb-4">
+                                <label for="funcion" class="form-label">Función F(X):</label>
+                                <input type="text" class="form-control" id="funcion1" autofocus name="funcion" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="funcion" class="form-label">Función G(X):</label>
+                                <input type="text" class="form-control" id="funcion2" name="funcion2" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="funcion" class="form-label">Valor inicial:</label>
+                                <input type="text" class="form-control" id="Inicial" name="Valor" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="funcion" class="form-label">Margen de error:</label>
+                                <input type="text" class="form-control" id="error" name="error" required>
+                            </div>
+                            <div class="d-grid mb-2">
+                                <button type="submit" class="btn btn-primary" id="resolver">
+                                    Resolver
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+</div>
+{% endblock %}

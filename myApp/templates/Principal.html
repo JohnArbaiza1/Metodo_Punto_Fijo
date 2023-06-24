@@ -1,0 +1,113 @@
+{% extends 'layouts/base2.html' %}
+
+{% load static %}
+
+
+{% block content %} 
+
+<style>
+    body{
+        background-color: #DDE6ED;
+    }
+
+    h1{
+        color: #27374D;
+        text-align: center;
+    }
+</style>
+
+<br>
+<h1 class="text-center">Bienvenido</h1>
+
+<!--Parte donde se trabaja el diseño del perfil de usuario-->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="PerfilUsuario" aria-labelledby="PerfilUsuario">
+
+    <!--Titulo y boton de salir-->
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="PerfilUsuario">Perfil</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+      <!--Contenido-->
+      <div class="offcanvas-body">
+
+        <!--Contenedor principal-->
+        <div class="container">
+
+          <div class="card">
+
+             <!-- Mostrando la imagen de fondo -->
+              {% if perfil.FondoPerfil %}
+              <img class="FonPerfil" src="{{ perfil.FondoPerfil.url }}" alt="Fondo de perfil">
+              {% endif %}
+           
+            <!-- Mostrando la imagen de perfil -->
+             {% if perfil.IMGPerfil %}
+            <img class="IMGPerfil" src="{{ perfil.IMGPerfil.url }}" alt="Imagen de perfil">
+            {% endif %}
+            <div class="card-body">
+              <span class="UserName" id="UserName"><b>Usuario:</b> @{{ perfil.user.username }}</span><br><br>
+              <span class="name" id="name"><b>Nombre:</b> {{ perfil.name }}</span><br><br>
+              <span class="lastName" id="lastName"><b>Apellido:</b> {{ perfil.lastName }}</span><br><br>
+              <span class="email" id="email"><b>Correo electrónico:</b> {{ perfil.email }}</span>
+               <br><br>
+             
+                <div class="text-center">
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Editar perfil
+                      </button>
+                </div>
+
+                
+             
+            </div>
+          </div><br>
+
+          <div class="card">
+            <div class="collapse" id="collapseExample">
+                <div class="card-body">
+                  <h5 class="card-title mb-2">Editar perfil </h5>
+                  <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mx-sm-4 mb-3">
+                        <label for="name" class="form-label">Nombre:</label><br>
+                        <input  type="text" class="form-control" id="name" autofocus name="name"
+                        placeholder="Ingrese su nombre">
+                    </div>
+
+                    <div class="mx-sm-4 mb-3">
+                        <label for="email" class="form-label">Apellido:</label><br>
+                        <input  type="text" class="form-control" id="lastName" name="lastName"
+                        placeholder="Ingrese su apellido">
+                    </div>
+
+                    <div class="mx-sm-4 mb-3">
+                        <label for="email" class="form-label">Correo:</label><br>
+                        <input  type="text" class="form-control" id="email" name="email"
+                        placeholder="Ingrese su correo electrónico">
+                    </div>
+
+                    <div class="img">
+                       <p> {{ form.IMGPerfil }}</p>
+
+                        <p>{{ form.FondoPerfil }}</p>
+                    </div>
+
+                   <div class="opciones mb-4">
+                      <button class="btn btn-primary " type="submit">Guardar</button>
+                      <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Cancelar
+                      </button>
+                   </div>
+
+                </form>
+                </div>
+              </div>
+          </div>
+        </div>
+
+        
+      </div>
+  </div>
+    
+{% endblock %}

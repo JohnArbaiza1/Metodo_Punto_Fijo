@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de punto fijo</title>
+
+    <!--Llamando a las clases de bootstrap-->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+    <!--Clase de css propia a emplear-->
+    <link rel="stylesheet" href="{% static '/css/base.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <!--Barra de navegacion-->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <img class="Logo" src="{% static 'IMG/Logo.jpeg' %}" alt="Logo">
+
+            <!--Opciones-->
+            <ul class="Menu">
+              <li>
+                <button class="inicio">
+                    <a href="{% url 'Ingreso' %}"><i class="fa-solid fa-right-to-bracket"></i> LOGIN</a>
+                </button>
+              </li>
+
+              <li>
+                <button class="registro">
+                    <a href="{% url 'registro' %}"><i class="fa-regular fa-user"></i> Registro</a>
+                </button>
+              </li>
+
+              <li>
+                <button class="contacto">
+                    <a href="https://github.com/JohnArbaiza1/Metodo_Punto_Fijo"><i class="fa-brands fa-github"></i> Contacto</a>
+                </button>
+              </li>
+            </ul>
+        </div>
+      </nav>
+    
+
+    <!--Contenedor principal-->
+    <div class="container">
+
+    </div>
+
+    {% block content %} 
+    
+    {% endblock %}
+    
+</body>
+</html>
