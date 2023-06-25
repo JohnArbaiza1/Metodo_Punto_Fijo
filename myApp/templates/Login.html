@@ -60,6 +60,15 @@
     .link:hover{
         color: tomato;
     }
+
+    .cerrar:hover{
+        background: tomato;
+    }
+    
+    .update button:hover{
+        background: rgb(10, 167, 214);
+    }
+
 </style>
 <body>
 
@@ -91,9 +100,12 @@
                                 <label for="password" class="form-label">Contraseña:</label>
                                 <input type="password" class="form-control" id="password" name="password"
                                 placeholder="Ingrese su contraseña">
+                                <span><a href="{% url 'updatePassword' %}">Has olvidado tu contraseña</a>
+                                </span><br>
 
                                 <span class="text-danger"> {{Error}}</span>
                             </div>
+
 
                             <div class="d-grid mb-3">
                                 <button type="submit" class="btn btn-primary">Ingresar</button>
@@ -120,6 +132,7 @@
         </div>
      
     </div>
+
 
     
 </body>

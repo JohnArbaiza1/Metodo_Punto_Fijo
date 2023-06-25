@@ -5,6 +5,8 @@
 
 {% block content %} 
 
+
+<!--parte donde estan los estilos de algunos elementos-->
 <style>
     body{
         background-color: #DDE6ED;
@@ -14,10 +16,72 @@
         color: #27374D;
         text-align: center;
     }
-</style>
 
+    .card{
+        width: 26rem;
+        box-shadow: -5px 5px 10px rgb(31, 77, 91);
+        color: #093777;
+    }
+
+
+</style>
 <br>
-<h1 class="text-center">Bienvenido</h1>
+
+<h1 class="text-center">Solucionador del método de punto fijo</h1>
+
+<!--Contenedor principal-->
+  <div class="container mt-5 mb-4">
+    <div class="row">
+      <div class="col"></div>
+
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+          
+            <!--Indicaciones de como usar la aplicacion-->
+            <h3 class="card-title text-center">  INDICACIONES</h3>
+            <hr>
+            <span>Para que el método funcione se le debe agregar:</span>
+            <br><br>
+
+             <!--Pidiendo los datos requeridos-->
+             <form method="POST" action='{% url "procesar_formulario" %}'>
+              {% csrf_token %}
+              <div class="mb-4">
+                  <label for="funcion" class="form-label">Función F(X):</label>
+                  <input type="text" class="form-control" id="funcion1" autofocus name="funcion" required>
+              </div>
+
+              <div class="mb-4">
+                <label for="funcion" class="form-label">Función G(X):</label>
+                <input type="text" class="form-control" id="funcion2" name="funcion2" required>
+            </div>
+
+            <div class="mb-4">
+                <label for="funcion" class="form-label">Valor inicial:</label>
+                <input type="text" class="form-control" id="Inicial" name="Valor" required>
+            </div>
+
+            <div class="mb-4">
+              <label for="funcion" class="form-label">Margen de error:</label>
+              <input type="text" class="form-control" id="error" name="error" required>
+          </div>
+          <div class="d-grid mb-2">
+              <button type="submit" class="btn btn-primary" id="resolver">
+                  Resolver
+              </button>
+          </div>
+
+          </div>
+
+        </div>
+      </div>
+  
+      <div class="col"></div>
+    </div>
+  </div>
+
+
 
 <!--Parte donde se trabaja el diseño del perfil de usuario-->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="PerfilUsuario" aria-labelledby="PerfilUsuario">
@@ -65,7 +129,9 @@
 
           <div class="card">
             <div class="collapse" id="collapseExample">
-                <form method="POST" enctype="multipart/form-data">
+                <div class="card-body">
+                  <h5 class="card-title mb-2">Editar perfil </h5>
+                  <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="mx-sm-4 mb-3">
                         <label for="name" class="form-label">Nombre:</label><br>
@@ -99,6 +165,7 @@
                    </div>
 
                 </form>
+                </div>
               </div>
           </div>
         </div>
