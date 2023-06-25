@@ -1,0 +1,37 @@
+.IMGD img{
+    width: 24rem;
+}
+
+/*Responsive de los navbar*/
+@media(max-width:769px){
+
+
+    .navbar ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items:center;
+    }
+
+    .navbar li{
+        padding: 6px;
+    }
+
+    /*Responsive de info*/
+    .navbar a span{
+        font-size: 1.4rem;
+    }
+
+    .LogoInfo{
+    width: 4rem;
+    height: auto;
+    
+}
+
+.IMGD img{
+    width: 10rem;
+
+}
+
+
+}

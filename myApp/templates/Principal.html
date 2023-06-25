@@ -45,7 +45,7 @@
             <br><br>
 
              <!--Pidiendo los datos requeridos-->
-             <form method="POST" action='{% url "procesar_formulario" %}'>
+             <form method="POST" action='{% url "procesar_formulario_User" %}'>
               {% csrf_token %}
               <div class="mb-4">
                   <label for="funcion" class="form-label">Función F(X):</label>

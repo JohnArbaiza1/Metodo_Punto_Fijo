@@ -12,21 +12,26 @@
     <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
     <!--Clase de css propia a emplear-->
     <link rel="stylesheet" href="{% static '/css/bases.css' %}">
+    <link rel="stylesheet" href="{% static '/css/Responsive.css' %}">
+    <!--Para los iconos-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
     <!--Barra de navegacion-->
-    <nav class="navbar">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <img class="Logo" src="{% static 'IMG/Logo.jpeg' %}" alt="Logo">
-
-            <!--Opciones-->
-            <ul class="Menu">
+          <img class="Logo" src="{% static 'IMG/Logo.jpeg' %}" alt="Logo">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+             <!--Opciones-->
+             <ul class="Menu">
 
               <li>
                 <button class="inicio">
-                    <a href="#"><i class="fa-solid fa-circle-info"></i> Info</a>
+                    <a href="{% url 'info' %}"><i class="fa-solid fa-circle-info"></i> Info</a>
                 </button>
               </li>
 
@@ -48,6 +53,7 @@
                 </button>
               </li>
             </ul>
+          </div>
         </div>
       </nav>
     
