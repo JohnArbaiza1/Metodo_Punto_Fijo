@@ -20,13 +20,35 @@
 </head>
 <body>
 
-    
+  <style>
+    @media(max-width:769px){
 
+
+.navbar ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+}
+
+.navbar li{
+        margin-top: 6px;
+    }
+    }
+  </style>
 
     <!--Barra de navegacion-->
-    <nav class="navbar">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <img class="Logo" src="{% static 'IMG/Logo.jpeg' %}" alt="Logo">
+
+          
+          <img class="Logo" src="{% static 'IMG/Logo.jpeg' %}" alt="Logo">
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <!--Opciones-->
             <ul class="Menu">
@@ -50,6 +72,9 @@
               </li>
 
             </ul>
+
+          </div>
+           
         </div>
       </nav>
 

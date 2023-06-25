@@ -1,0 +1,277 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informacion</title>
+
+    <!--Llamando a las clases de bootstrap-->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+
+    <link rel="stylesheet" href="{% static '/css/Responsive.css' %}">
+    
+</head>
+
+<style>
+    body{
+        background-color: #DDE6ED;
+    }
+
+    .navbar{
+        background: rgb(31, 77, 91);
+    }
+    .navbar span{
+        color: white;
+    }
+    .LogoInfo{
+        width: 5rem;
+        height: auto;
+        border-radius: 49%;
+        margin-left: 10px;
+    }
+
+    .Title1{
+        font-size: 2.8rem;
+    }
+
+    .card{
+        box-shadow: -5px 5px 10px rgb(31, 77, 91);
+        color: #093777;
+    }
+
+    .carousel{
+        width: 36rem;
+        display: flex;
+    }
+
+    .Imagenes{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .IMGD{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .Imagenes2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer{
+        width: 70rem;
+    }
+
+    @media(max-width:769px){
+        footer{
+    width: 25rem;
+}
+
+    }
+
+
+</style>
+
+<body>
+
+    <div class="navbar">
+        <a class="d-flex align-items-center  text-decoration-none " href="{% url 'Home' %}"> <img class="LogoInfo" src="{% static 'IMG/Logo.jpeg' %}" alt="Logo">
+             <span class="Title1 "> Método del punto fijo con Python y django </span>
+          </a> 
+    </div>
+
+    <main>
+        <div class="container mt-5">
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title text-center">Método del punto fijo &#128556</h3>
+                    <hr>
+
+                    <h5>¿En qué consiste el método de punto Fijo?</h5>
+
+                    <p>
+                        Es el método que se encarga de buscar la raíz de una función a partir de un valor inicial, una margen de error y un numero "n" de iteraciones. Para tener en cuenta, en este método no es necesario el uso de intervalos.
+                    </p>
+
+                    <h5>Requerimientos empleados en este programa: </h5>
+                    <ul>
+                        <li> Función F(x). Ecuación a despejar y para obtener gráfico.</li>
+                        <li>Función G(x). Ecuación utilizable para determinar si es una función catalogada como G(x). Los requisitos son que, al derivarse y evaluarse la derivada de la misma, debe de estar entre 0 y 1 para que sea una buena G(x).</li>
+                        <li>Valor Inicial: Es el que se otorga para poder evaluar e iniciar las iteraciones.</li>
+                        <li>Margen de error: Será el porcentaje que determine que tan cercana esta nuestra raíz a la real.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title text-center">Python &#128013</h3>
+                    <hr>
+
+                    <h5>¿Qué es Python?</h5>
+                    <p>
+                        Python es un lenguaje de programación creado por Guido van Rossum
+                        a principios de los años 90 cuyo nombre está inspirado en el grupo de
+                        cómicos ingleses “Monty Python”.Este se trata de un lenguaje interpretado o de script, con tipado dinámico, fuertemente tipado, multiplataforma y orientado a objetos y el cual ha sido empleado para la realización de este proyecto.   
+                    </p>
+
+                    <h5>¿Por qué usar Python y no otro lenguaje?</h5>
+                    <p>
+                        Para el proyecto se ha hecho uso de Python debido a su sintaxis simple, clara y sencilla tomado en cuenta que este posee de una gran cantidad de librerías disponibles que se adaptan muy bien a las necesidades que se tienen a la hora de programar el método antes mencionado.
+                    </p>
+
+                    <div class="Imagenes">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                        <div class="carousel-indicators">
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img src="{% static 'IMG/Python.jpg' %}" class="d-block w-100" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="{% static 'IMG/mathplotlib-python.png' %}" class="d-block w-100" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="{% static 'IMG/PythonIMG2.png' %}" class="d-block w-100" alt="...">
+                          </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title text-center">Django &#128526</h3>
+                    <hr>
+
+                    <h5>¿Qué es django?</h5>
+                    <p>
+                        Django es un framework web de alto nivel de Python que fomenta el desarrollo rápido y el diseño limpio y pragmático. Construido por desarrolladores experimentados, se encarga de gran parte de las complicaciones del desarrollo web, para que quien lo usa pueda centrarse en escribir su aplicación sin necesidad de reinventar la rueda. <br><br>
+
+                        Esta pagina  que estas visualizando en estos momentos está construida con django haciendo uso cada una de las funcionalidades que nos provee para poder ayudarte  a ti a solucionar tus problemas matemáticos que tengan que ver con el método del punto fijo.
+                    </p>
+
+                    <div class="IMGD">
+                        <img src="{% static 'IMG/djangoIMG.png' %}" alt="django">
+                    </div><br>
+
+                    <h5>Otras herramientas empleadas para el desarrollo de esta página son: </h5><br>
+
+                    <div class="Imagenes2">
+                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <img src="{% static 'IMG/HTML-IMG.png' %}" class="d-block w-100" alt="...">
+                              </div>
+                              <div class="carousel-item">
+                                <img src="{% static 'IMG/CSS-IMG.png' %}" class="d-block w-100" alt="...">
+                              </div>
+                              <div class="carousel-item">
+                                <img src="{% static 'IMG/bootstrap-IMG.png' %}" class="d-block w-100" alt="...">
+                              </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                          </div>
+                        </div>
+
+                </div>
+            </div>
+
+            
+        </div>
+       
+    </main>
+
+    <footer class="text-center text-black">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Recursos</h5>
+    
+                <ul class="list-unstyled mb-0">
+                    <li>
+                       <span>Imagenes</span>
+                    </li>
+                    <li>
+                        <span>Matplotlib</span>
+                    </li>
+
+                    <li>Django</li>
+                </ul>
+            </div>
+    
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Lenguajes</h5>
+    
+                <ul class="list-unstyled mb-0">
+                    <li>
+                        <span>Python</span>
+                    </li>
+                    <li>
+                        <span>CSS</span>
+                    </li>
+                    <li>
+                       <span>HTML</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Administradores</h5>
+
+                <ul class="list-unstyled mb-0">
+                    <li>
+                        <a href="https://github.com/JohnArbaiza1" class="text-dark nav-link">John Elvis Arbaiza Velásquez</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/lm21009UES" class="text-dark nav-link">Erick Adony López Meléndez</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Agradecimientos</h5>
+
+                <ul class="list-unstyled mb-0">
+                    <li>
+                        <a href="https://www.youtube.com/@FaztTech" class="text-dark nav-link">@FaztTech</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>       
+    </footer>
+     <!-- Copyright -->
+     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2023 Copyright:
+        <a class="text-white" href="https://github.com/JohnArbaiza1/Metodo_Punto_Fijo">ANS_Punto_Fijo</a>
+    </div>
+    
+</body>
+</html>

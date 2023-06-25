@@ -28,8 +28,14 @@ from .forms import *
 #importacion de procesos
 from .Grafica import*
 
-#-------------------------------------------------------------------------------------------
 # Create your views here.
+
+#-------------------------------------------------------------------------------------------
+
+def info(request):
+    return render(request, 'Info.html')
+
+#-------------------------------------------------------------------------------------------
 
 def Home(request):
     return render(request, 'index.html')
@@ -179,9 +185,39 @@ def procesar_formulario(request):
         funcion2 = request.POST.get('funcion2')
         #mandamos a derivar la ecuacion para verificar si es buena g(x)
         deriva = grafica.verificandoGx(funcion2)
+        #obtenemos el valor inicial
+        valor_inicial = float(request.POST.get('Valor'))
+        #obtenemos el dato para verificar si es buena g(x)
+        dato = grafica.Verificar(deriva, valor_inicial)
+        #obtenemos el margen de error
+        margen_error = float(request.POST.get('error'))
+        #procesamos para encontrar la raiz
+        raiz = grafica.Proceso(funcion2, valor_inicial, margen_error)
+        imagen = grafica.grafico(funcion, raiz)
+        arrayV = np.array([funcion, funcion2, valor_inicial, margen_error, raiz])
+        data = grafica.Iteraciones(funcion2, valor_inicial, margen_error)
+        iteraciones_html= data.to_html()
+        iteraciones_html = iteraciones_html.replace('<table', '<table class="table table-bordered"')
+        return render(request, 'Resolucion.html ',{
+            'numeros': arrayV,
+            'imagen': imagen,
+            'iteraciones': iteraciones_html,
+        })
+    
+def Resolucion(request):
+    return render(request,'Resolucion.html')
+
+def procesar_formulario_User(request):
+    if request.method == 'POST':
+        #funcion principal que sirve para graficar
+        funcion = request.POST.get('funcion')
+        #funcion despejada que sera para verificar si es buena g(x)
+        funcion2 = request.POST.get('funcion2')
+        #mandamos a derivar la ecuacion para verificar si es buena g(x)
+        deriva = grafica.verificandoGx(funcion2)
         
         #obtenemos el valor inicial
-        valor_inicial = int(request.POST.get('Valor'))
+        valor_inicial = float(request.POST.get('Valor'))
         #obtenemos el dato para verificar si es buena g(x)
         dato = grafica.Verificar(deriva, valor_inicial)
         #obtenemos el margen de error
@@ -194,11 +230,11 @@ def procesar_formulario(request):
         data = grafica.Iteraciones(funcion2, valor_inicial, margen_error)
         iteraciones_html= data.to_html()
         iteraciones_html = iteraciones_html.replace('<table', '<table class="table table-bordered"')
-        return render(request, 'Resolucion.html ',{
+        return render(request, 'Resolucion2.html ',{
             'numeros': arrayV,
             'imagen': imagen,
             'iteraciones': iteraciones_html
         })
     
-def Resolucion(request):
-    return render(request,'Resolucion.html')
+def Resolucion_User(request):
+    return render(request,'Resolucion2.html')

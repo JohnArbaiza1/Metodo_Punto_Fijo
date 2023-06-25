@@ -14,8 +14,11 @@ urlpatterns = [
     path('logout', views.cerrar, name='logout'),
     path('Ingreso/', views.Ingreso, name='Ingreso'),
     path('procesar_formulario/', views.procesar_formulario, name='procesar_formulario'),
+    path('procesar_formulario_User/', views.procesar_formulario_User, name='procesar_formulario_User'),
+    path('Resolucion_User/', views.Resolucion_User, name='Resolucion_User'),
     path('Resolucion/', views.Resolucion, name='Resolucion'),
     path('updatePassword/', views.updatePassword, name='updatePassword'),
+    path('info/', views.info, name='info'),
     
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

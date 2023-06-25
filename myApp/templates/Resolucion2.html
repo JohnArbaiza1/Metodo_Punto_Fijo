@@ -1,15 +1,10 @@
-{% extends 'layouts/base.html' %}
+{% extends 'layouts/base3.html' %}
 
 {% load static %}
 
 {% block content %}
 
 {% csrf_token %}
-<style>
-    p:hover{
-        color: blue;
-    }
-</style>
 <div class="container ">
         <div class="text-center">
             <img src="data:image/png;base64,{{ imagen }}" alt="No corre xd">
@@ -34,19 +29,20 @@
                     </tr>
                 </tbody>
             </table>
+           
+        </div>
+        <br>
+        <h1 class="text-center" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Iteraciones</h1>
+        <div>
+            {{ iteraciones|safe }}
+        </div>
         <br>
         <div class="text-center">
             <button id="regresar" class="btn btn-outline-dark">
-                <a href="{% url 'Home' %}" style="text-decoration: none;">Volver al Solucionador</a>
+                <a href="{% url 'Principal' %}" style="text-decoration: none;">Volver al Solucionador</a>
             </button>
         </div>
         <br>
-        <br>
-        <p class="text-center" style="font-style: italic;">Si deseas ver el proceso debes estar registrador e ingresar como Usuario</p>
-        <p class="text-center" style="font-style: italic;">ES GRATUITO</p>
-        <p class="text-center" style="font-style: italic;">
-            <a href="{% url 'registro' %}" style="text-decoration: none;">Registrate Aqui</a>
-        </p>
         <hr>
 </div>
 {% endblock %}

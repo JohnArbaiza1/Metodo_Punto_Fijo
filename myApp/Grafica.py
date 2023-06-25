@@ -5,19 +5,20 @@ import numpy as np
 import base64
 import io
 from io import BytesIO
+from math import*
 
 class grafica:
     
     def grafico(expresion, number):
         x = symbols('x')
         ecuacion = simplify(expresion)
-        numero= np.linspace(-20,20,100)
+        numero= np.linspace(0,40,100)
         plt.figure()
         plt.plot(numero, [ecuacion.evalf(subs={x:i}) for i in numero])
         plt.plot(number, ecuacion.evalf(subs={x:number}), marker="o")
         plt.annotate(str(number), (number, ecuacion.evalf(subs={x:number})))
         plt.grid()
-        plt.xlim(-15, 15)
+        plt.xlim(-2, 28)
         plt.ylim(-15, 15)
         plt.axhline(0, color="black")
         plt.axvline(0, color="black")
