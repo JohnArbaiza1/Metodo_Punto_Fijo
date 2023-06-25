@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
     <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
     <!--Clase de css propia a emplear-->
-    <link rel="stylesheet" href="{% static '/css/base.css' %}">
+    <link rel="stylesheet" href="{% static '/css/bases.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -23,6 +23,13 @@
 
             <!--Opciones-->
             <ul class="Menu">
+
+              <li>
+                <button class="inicio">
+                    <a href="#"><i class="fa-solid fa-circle-info"></i> Info</a>
+                </button>
+              </li>
+
               <li>
                 <button class="inicio">
                     <a href="{% url 'Ingreso' %}"><i class="fa-solid fa-right-to-bracket"></i> LOGIN</a>
@@ -37,7 +44,7 @@
 
               <li>
                 <button class="contacto">
-                    <a href=""><i class="fa-brands fa-github"></i> Contacto</a>
+                    <a href="https://github.com/JohnArbaiza1/Metodo_Punto_Fijo"><i class="fa-brands fa-github"></i> Contacto</a>
                 </button>
               </li>
             </ul>

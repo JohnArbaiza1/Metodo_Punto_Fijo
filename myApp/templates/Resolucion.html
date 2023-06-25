@@ -1,0 +1,41 @@
+{% extends 'layouts/base3.html' %}
+
+{% load static %}
+
+{% block content %}
+
+{% csrf_token %}
+<div class="container ">
+        <img src="data:image/png;base64,{{ imagen }}" alt="No corre xd">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12  justify-content-center">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Funcion F(x)</th>
+                        <th scope="col">Funcion G(x)</th>
+                        <th scope="col">Valor Inicial</th>
+                        <th scope="col">Margen de ERROR</th>
+                        <th scope="col">Raiz</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {% for numero in numeros %}
+                            <td>{{ numero }}</td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+           
+        </div>
+        <br>
+        <div>
+            {{ iteraciones|safe }}
+        </div>
+        <br>
+        <button id="regresar" class="inicio mb-4" style="float: right;">
+            <a style="text-decoration: none; color: white;" href="{% url 'Principal' %}">Volver al Solucionador</a> 
+        </button>
+        
+</div>
+{% endblock %}

@@ -1,0 +1,110 @@
+.Logo{
+    width: 5rem;
+    height: auto;
+    border-radius: 49%;
+    margin-left: 10px;
+}
+
+.navbar{
+    background: rgb(31, 77, 91);
+}
+.Menu{
+    display: flex;
+    padding: 0; 
+}
+
+.Menu li{
+    padding:2px 20px;
+    list-style-type: none;
+
+    /*Definiendo una pequeña transición*/
+    transition: 0.4s;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.Menu li a{
+    text-decoration: none;
+    color: white;
+}
+
+.inicio{
+    background-color: rgb(51, 152, 219);
+    border: none;
+    height: 40px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+.inicio:hover{
+    background-color: rgb(139, 195, 75);
+}
+
+.registro{
+    background-color: rgb(51, 152, 219);
+    border: none;
+    height: 40px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+.registro:hover{
+    background-color: rgb(139, 195, 75);
+}
+
+.contacto{
+    background-color: rgb(51, 152, 219);
+    border: none;
+    height: 40px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+.contacto:hover{
+    background-color: rgb(139, 195, 75);
+}
+
+/*------------------------------------------------------------------------------------
+  En este mismo archivo de css hacemos los estilos del navbar de principal*/
+
+  .Perfil{
+    background-color: rgb(51, 152, 219);
+    border: none;
+    height: 40px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid white;
+  }
+
+.Perfil:hover{
+    background-color: rgb(139, 195, 75);
+}
+
+.exit{
+    background-color: rgb(51, 152, 219);
+    border: none;
+    height: 40px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+.exit:hover{
+    background-color: rgb(139, 195, 75);
+}
+
+.Activo{
+    background-color: rgb(51, 152, 219);
+    border: none;
+    height: 40px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid white;
+    color: white;
+}
+
+.Activo:hover{
+    background-color: rgb(139, 195, 75);
+}
