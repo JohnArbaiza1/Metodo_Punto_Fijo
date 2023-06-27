@@ -19,6 +19,7 @@ urlpatterns = [
     path('Resolucion/', views.Resolucion, name='Resolucion'),
     path('updatePassword/', views.updatePassword, name='updatePassword'),
     path('info/', views.info, name='info'),
+    path('verificar_datos/', views.verificar_datos, name='verificar_datos'),
     
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

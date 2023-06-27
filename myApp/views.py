@@ -4,6 +4,11 @@ from django.shortcuts import render,redirect
 #para crear formularios de registro y comprobar que el usuario existe
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
+#para validaciones del g(x)
+from django.http import JsonResponse
+from sympy import*
+import json
+
 #Para el registro de usuarios
 from django.contrib.auth.models import User
 
@@ -204,8 +209,11 @@ def procesar_formulario(request):
             'iteraciones': iteraciones_html,
         })
     
+#-------------------------------------------------------------------------------------------
 def Resolucion(request):
     return render(request,'Resolucion.html')
+
+#-------------------------------------------------------------------------------------------
 
 def procesar_formulario_User(request):
     if request.method == 'POST':
@@ -235,6 +243,26 @@ def procesar_formulario_User(request):
             'imagen': imagen,
             'iteraciones': iteraciones_html
         })
-    
+
+#-------------------------------------------------------------------------------------------  
+
 def Resolucion_User(request):
     return render(request,'Resolucion2.html')
+
+#-------------------------------------------------------------------------------------------
+def verificar_datos(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        funcion = data.get('funcion')
+        valor = data.get('valor')
+
+        x = symbols("x")
+        ecuacionTemporal = sympify(funcion)
+        derivada = diff(ecuacionTemporal, x)
+        obtenido = derivada.evalf(subs={x: float(valor)})
+        if 0.0 <= float(obtenido) <= 1.0:
+            return JsonResponse({'valid': True})
+        else:
+            return JsonResponse({'valid': False})
+
+    return JsonResponse({'valid': False})

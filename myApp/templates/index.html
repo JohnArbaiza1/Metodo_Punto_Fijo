@@ -68,7 +68,7 @@
                         <br> <br>
 
                         <!--Pidiendo los datos requeridos-->
-                        <form method="POST" action='{% url "procesar_formulario" %}'>
+                        <form method="POST" action='{% url "procesar_formulario" %}' id="formulario" onsubmit="return validarFormulario()">
                             {% csrf_token %}
                             <div class="mb-4">
                                 <label for="funcion" class="form-label">Función F(X):</label>
@@ -101,4 +101,36 @@
             
         </div>
 </div>
+<script>
+    function validarFormulario() {
+        var funcion = document.getElementById("funcion2").value;
+        var valor = document.getElementById("Inicial").value;
+
+        fetch('/verificar_datos/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}'
+            },
+            body: JSON.stringify({ funcion: funcion, valor: valor })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.valid) {
+                // Los datos son válidos, enviar el formulario manualmente
+                document.getElementById('formulario').submit();
+            } else {
+                // Los datos no son válidos, muestra un mensaje de error o realiza alguna acción adicional
+                alert('La Funcion G(x) no es buena, intente ingresar otra para reducir las iteraciones.');
+            }
+        })
+        .catch(error => {
+            // Manejar el error en caso de fallo en la llamada AJAX
+            console.error('Error:', error);
+        });
+
+        // Devuelve false para evitar que el formulario se envíe automáticamente
+        return false;
+    }
+</script>
 {% endblock %}
